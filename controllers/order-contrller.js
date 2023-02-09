@@ -42,7 +42,7 @@ createOrderRoute.route('/getMenu').get((req, res) => {
 
 
 createOrderRoute.route('/getOrders').post((req, res) => {
-  console.log('req.params',req.params)
+  console.log('req.body',req.body)
 
   let body = req.body;
 

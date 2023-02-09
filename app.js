@@ -9,10 +9,12 @@ let express = require('express'),
    const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
+require('dotenv').config()
 
 // Connecting with mongo db
+// process.env.DBKEY || 
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db, {
+mongoose.connect(process.env.DBKEY || dbConfig.db, {
    useNewUrlParser: true
 }).then(() => {
       console.log('Database sucessfully connected')
@@ -49,6 +51,7 @@ app.use(bodyParser.json());
 // app.use(expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth']}));
 
 // Create port
+// || 4000
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   console.log('Connected to port ' + port)
