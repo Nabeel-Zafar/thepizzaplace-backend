@@ -58,7 +58,7 @@ const server = app.listen(port, () => {
 })
 
 // Heroku
-app.use(express.static(__dirname + '/dist/resturant-management-frontend')); // /dist/resturant-management-frontend
+app.use(express.static(__dirname + '/dist')); // /dist/resturant-management-frontend
 app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname + '/dist/index.html')); // /dist/resturant-management-frontend/index.html
 
